@@ -1,0 +1,38 @@
+create database voleizinho;
+USE voleizinho;
+
+create table  jogadoras (
+ID_Jogador int primary key auto_increment,
+Nome_Jogador varchar(100),
+Posicao varchar(50),
+Altura int,
+Data_Nascimento date
+); 
+
+create table Treinador (
+ID_Treinador int primary key auto_increment,
+Nome_Treinador varchar(100),
+Especialidade varchar(50),
+Data_Contratacao date
+);
+
+create table partida(
+id_partida int primary key auto_increment,
+data_partida date,
+adversário varchar(100),
+Local_a varchar(100),
+Resultado varchar(10)
+);
+
+CREATE TABLE resulte (
+    id_resulte INT PRIMARY KEY,
+    id_Jogadoras INT,
+    id_partida INT,
+    Pontos_Marcados INT,
+    Bloqueios INT,
+    Aces INT,
+     FOREIGN KEY(id_Jogadoras) REFERENCES jogadores( id_Jogadoras),
+     FOREIGN KEY(id_partida) REFERENCES partida(id_partida)
+);
+
+
